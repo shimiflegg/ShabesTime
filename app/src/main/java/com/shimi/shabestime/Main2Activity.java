@@ -1,8 +1,10 @@
 package com.shimi.shabestime;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,10 +20,19 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        findViewById(R.id.butondate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Main2Activity.this, datetimefromack2.class);
+                startActivity(intent);
+            }
+        }) ;
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
 
-        myRef.setValue("Shimi");
+        myRef.setValue("ariel");
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
