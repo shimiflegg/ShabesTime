@@ -5,12 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -21,18 +27,26 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
         findViewById(R.id.butondate).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Main2Activity.this, datetimefromack2.class);
                 startActivity(intent);
             }
+            private EditText choosshabat;
+
         }) ;
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        myRef.setValue("ariel");
+        DatabaseReference myRef = database.getReference("sds");
+
+
+        myRef.push().setValue("bxjvjv");
+        myRef.setValue("itrow" +
+                "mishputim" +
+                "beshlach");
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {

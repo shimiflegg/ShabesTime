@@ -60,7 +60,7 @@ public class datetimefromack2 extends AppCompatActivity implements
               minuth=c.get(Calendar.MINUTE);
               TimePickerDialog timePickerDialog = new TimePickerDialog
                       (datetimefromack2.this,datetimefromack2.this,hour,minuth,is24 );
-              timePickerDialog.show();
+             // timePickerDialog.show();
           }
           @Override
           public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
