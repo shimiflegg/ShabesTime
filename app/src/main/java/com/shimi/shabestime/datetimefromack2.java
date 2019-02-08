@@ -10,6 +10,9 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 
@@ -46,7 +49,6 @@ public class datetimefromack2 extends AppCompatActivity implements
 
 
 
-
     }
 
           @Override
@@ -72,4 +74,5 @@ public class datetimefromack2 extends AppCompatActivity implements
                      "hour:" + hourFinal + "\n" +
                      "minute:" + minuthfinal );
           }
+
       }

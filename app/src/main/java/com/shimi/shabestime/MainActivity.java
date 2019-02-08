@@ -36,11 +36,10 @@ ArrayList<String> myArrayList=new ArrayList<>();
         myListview.setAdapter(myArrayAdapter);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("sds");
-
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String myValus=dataSnapshot.getValue(String.class);
+                String myValus=dataSnapshot.getValue(Long.class).toString();
                 myArrayList.add(myValus);
                 myArrayAdapter.notifyDataSetChanged();
 
@@ -66,8 +65,6 @@ ArrayList<String> myArrayList=new ArrayList<>();
 
             }
         });
-
-
 
 //        List<AuthUI.IdpConfig> providers = Arrays.asList(
 //                new AuthUI.IdpConfig.EmailBuilder().build(),
