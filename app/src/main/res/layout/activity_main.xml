@@ -8,20 +8,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="354dp"
+        android:layout_height="0dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/nerot" />
+        app:srcCompat="@drawable/nerot"
+        tools:layout_editor_absoluteX="16dp" />
 
     <Button
         android:id="@+id/btn_cllick"
@@ -33,22 +25,20 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Choose yor Shabbath"
+        android:text="צפייה בזמני שבת"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/Listview"
-        android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="add a Shabbath"
-        app:layout_constraintBottom_toTopOf="@+id/btn_cllick"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+    <Button
+        android:id="@+id/newShabbath_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="הוספה"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        tools:layout_editor_absoluteY="83dp" />
+
 </android.support.constraint.ConstraintLayout>

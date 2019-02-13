@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+
+    <string-array name="shabbath_name">
+        <item> בראשית</item>
+        <item>שמות</item>
+        <item>ויקרא</item>
+        <item>במדבר</item>
+        <item>דברים</item>
+        <item>נח</item>
+
+
+    </string-array>
+</resources>

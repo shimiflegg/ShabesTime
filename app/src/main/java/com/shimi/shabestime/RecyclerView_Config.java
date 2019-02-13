@@ -1,6 +1,7 @@
 package com.shimi.shabestime;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -50,14 +51,27 @@ public class RecyclerView_Config {
             mExitTime = (TextView) itemView.findViewById(R.id.exit_time_txtView);
             mDate = (TextView) itemView.findViewById(R.id.date_txtView);
 
-        }
+            itemView.setOnClickListener(new View.OnClickListener() {
 
+                @Override
+                public void onClick(View view) {
+                    Intent intent =new Intent(mContext,ShabbathDetailsActivity.class);
+                    intent.putExtra("key",key);
+                    intent.putExtra("Date",mDate.getText().toString());
+                    intent.putExtra("Entry_time",mEntryTime.getText().toString());
+                    intent.putExtra("Exit_time",mExitTime.getText().toString());
+                    intent.putExtra("name",mName.getText().toString());
+
+                    mContext.startActivity(intent);
+                }
+            });
+        }
         public void bind(Shabbath shabbath, String Key) {
             mName.setText(shabbath.getName());
             mEntryTime.setText(shabbath.getEntry_time());
             mExitTime.setText(shabbath.getExit_time());
             mDate.setText(shabbath.getDate());
-            this.key = key;
+            this.key = Key;
 
 
         }
