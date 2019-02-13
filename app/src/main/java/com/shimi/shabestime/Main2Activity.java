@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebViewDatabase;
 import android.widget.ArrayAdapter;
@@ -26,8 +28,8 @@ import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private static final String TAG = "Shimi";
-/**/private Button btnViewDatabase;
+    /*private static final String TAG = "Shimi";
+*//**//*private Button btnViewDatabase;*/
 
 
        private RecyclerView mRecyclerView;
@@ -62,50 +64,13 @@ public class Main2Activity extends AppCompatActivity {
              }
          });
 
-        /*findViewById(R.id.butondate).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Main2Activity.this, datetimefromack2.class);
-                startActivity(intent);
-            }
-            private EditText choosshabat;
 
-        }) ;*/
-        /*findViewById(R.id.ChoosByShabbath).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Main2Activity.this,dataShabbathForMack1.class);
-                startActivity(intent);
-            }
-            private EditText choosshabat;
-
-        }) ;*/
-//        btnViewDatabase = findViewById(R.id.btn_byShabbath);
-//        btnViewDatabase.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//
-//                Intent intent =new Intent(Main2Activity.this,ViewDatabase.class);
-//                startActivity(intent);
-//
-//            }
-//        });
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-//        DatabaseReference myRef = database.getReference("sds");
-
-
-  //Shabbath shabbath=new   Shabbath("itrow",33);
-       // myRef.child("shabbath");
 
         // [START basic_write]
- ArrayList<Shabbath> shabbaths= new ArrayList<Shabbath>();
+ /*ArrayList<Shabbath> shabbaths= new ArrayList<Shabbath>();*/
 
-               // myRef.push().setValue("bxjvjv");
-//        myRef.setValue("Shabbath");
-
-//        myRef.child("SS");
 
         // Read from the database
 //        myRef.addValueEventListener(new ValueEventListener() {
@@ -123,5 +88,23 @@ public class Main2Activity extends AppCompatActivity {
 //                Log.w(TAG, "Failed to read value.", error.toException());
 //            }
 //        });
+    }
+
+    public boolean onCreatOptionManu(Menu menu){
+
+        getMenuInflater().inflate(R.menu.shabbathlist_activity_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId())
+        {
+            case R.id.new_shabbath:
+                startActivity(new Intent(this,NewShabbathActivity.class));
+                return true;
+
+
+        }
+        return  super.onOptionsItemSelected(item);
     }
 }

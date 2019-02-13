@@ -2,6 +2,7 @@ package com.shimi.shabestime;
 
 import android.support.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,4 +50,43 @@ public void readShabbaths(final DataStatus dataStatus){
         }
     });
 }
+
+
+  public  void addShabbath(Shabbath shabbath,final DataStatus dataStatus){
+      String key= myRefShabbaths.push().getKey();
+      myRefShabbaths.child(key).setValue(shabbath).addOnSuccessListener(new OnSuccessListener<Void>() {
+          @Override
+          public void onSuccess(Void aVoid) {
+
+          dataStatus.DataIsInserted();
+          }
+      });
+
+
+
+
+  }
+  public void updateShabbath(String Key,Shabbath shabbath ,final DataStatus dataStatus){
+
+    myRefShabbaths.child(Key.toString()).setValue(shabbath).
+            addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    dataStatus.DataIsUpdate();
+                }
+            });
+
+  }
+  public  void deleteShabbath(String Key,final DataStatus dataStatus){
+
+      myRefShabbaths.child(Key.toString()).setValue(null).
+              addOnSuccessListener(new OnSuccessListener<Void>() {
+                  @Override
+                  public void onSuccess(Void aVoid) {
+                      dataStatus.DataIsDeleted();
+                  }
+              });
+
+  }
+
 }

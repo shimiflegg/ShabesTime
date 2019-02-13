@@ -32,11 +32,10 @@ ArrayList<String> myArrayList=new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final ArrayAdapter<String> myArrayAdapter =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,myArrayList);
-        myListview=(ListView) findViewById(R.id.Listview) ;
-        myListview.setAdapter(myArrayAdapter);
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("sds");
-        myRef.addChildEventListener(new ChildEventListener() {
+       /* DatabaseReference myRef = database.getReference("sds");*/
+       /* myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 String myValus=dataSnapshot.getValue(Long.class).toString();
@@ -65,7 +64,7 @@ ArrayList<String> myArrayList=new ArrayList<>();
 
             }
         });
-
+*/
 //        List<AuthUI.IdpConfig> providers = Arrays.asList(
 //                new AuthUI.IdpConfig.EmailBuilder().build(),
 //                new AuthUI.IdpConfig.PhoneBuilder().build(),
@@ -87,6 +86,13 @@ ArrayList<String> myArrayList=new ArrayList<>();
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                startActivity(intent);
+            }
+        }) ;
+        findViewById(R.id.newShabbath_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NewShabbathActivity.class);
                 startActivity(intent);
             }
         }) ;
